@@ -1,0 +1,38 @@
+Pers1 a fait X actes de gentilesse envers Pers2
+(acte-gentilesse pers1 pers2 X)
+
+Object X cause Y blessure. Une blessure par objet
+(objet X Y)
+
+X est mort avec Y trace. Des cheveux de couleur Z
+(est-mort X Y Z)
+
+X s'est drogué
+(est-drogue X)
+
+X etait à Y a Zh
+(emplacement X Y Z)
+
+X est en relation avec Y
+(relation X Y)
+
+X a un motif Z de poids A pour tuer Y
+(motif X Y Z A)
+
+X est un suspect
+(est-suspect  X)
+
+X est un suspect
+(suspect-raison-capilaire  X)
+
+X est celui qui a le plus de raison de bully, donc il est suspect
+(suspect-bully X)
+
+X est l'emplacement du meurtre
+(emplacement-meurtre X)
+
+Pour se deplacer de A a B cela prend Y minutes
+(deplacement-temps A B Y)
+
+X est en relation avec un personne du même sexe Y
+(personnes-en-relation-same-sexe X Y)
