@@ -1,0 +1,45 @@
+##########Coréférence : l'utilisation de pronoms personnels
+#Exemple : Lévis était dans le local. Il ne mange pas de banane.
+#Exemple : Mathieu et Simon étaient amis. Mais ils sont revenus séparément.
+
+
+##########Phrase compose
+Nelson est un danseur et il est heureux
+Anne est decedee et elle etait une actrice
+
+
+##########Chiffres / Heures :
+#Exemple : Il y avait 4 voleurs dans le groupe.
+#Exemple : Elle est arrivée à 14h30.
+#Exemple : Il y avait quatre voleurs dans le groupe.
+#Hugo a 25 ans
+#Il faut 1 heure pour se deplacer du feu à la tente
+
+
+##########Negation
+Jean n'est pas un danseur
+
+Une phrase invalide
+
+##########Enumeration
+#Nelson possede un couteau, une batte et un fil de fer.
+
+
+##########Verbe: Varite de temps
+#Variété de temps de verbe :
+#Exemple : Le corps est chaud.
+#Exemple : Le corps était encore chaud à midi.
+#Exemple : Le corps s’est refroidi rapidement.
+Clervens possedait le couteau
+
+
+##########Vérification du genre et du nombre
+Nelson est un danseur
+Kim est une danseuse
+
+
+##########Utilisation de synonymes
+Hugo est fache
+Hugo est mecontent
+Kim est fachee
+Kim est mecontente

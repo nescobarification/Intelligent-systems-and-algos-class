@@ -1,0 +1,12 @@
+% start DP
+DP[AGR=?a] -> D[AGR=?a] N[AGR=?a]
+D[AGR=[NUM='sg', PERS=3]] -> 'this' | 'that'
+D[AGR=[NUM='pl', PERS=3]] -> 'these' | 'those'
+D[AGR=[NUM='pl', PERS=1]] -> 'we'
+D[AGR=[PERS=2]] -> 'you'
+N[AGR=[NUM='sg', GND='m']] -> 'boy'
+N[AGR=[NUM='pl', GND='m']] -> 'boys'
+N[AGR=[NUM='sg', GND='f']] -> 'girl'
+N[AGR=[NUM='pl', GND='f']] -> 'girls'
+N[AGR=[NUM='sg']] -> 'student'
+N[AGR=[NUM='pl']] -> 'students'

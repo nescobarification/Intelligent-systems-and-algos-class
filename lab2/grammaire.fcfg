@@ -1,0 +1,69 @@
+%start S
+
+S[SEM=<app(?vp, ?np)>, SUBJ=?np] -> NP[SEM=?np, AGR=?arg] VP[SEM=?vp, AGR=?arg]
+S[SEM=<app(?vp, ?n)>, SUBJ=?n] -> PRO[AGR=?arg, SEM=?n] VP[SEM=?vp, ARG=?arg]
+S[SEM=<?s1 and ?s2>] -> S[SEM=?s1, SUBJ=?n] CONJ S[SEM=?s2, SUBJ=?n]
+
+NP[SEM=?n, AGR=?arg] -> N[SEM=?n, AGR=?arg]
+NP[SEM=?n, AGR=?arg] -> NN[SEM=?n, AGR=?arg]
+NP[SEM=?n, AGR=?arg] -> DET[AGR=?arg] NN[SEM=?n, AGR=?arg]
+
+
+VP[SEM=<app(?v, ?a)>, TENSE=?t, AGR=?arg] -> V[SEM=?v, TENSE=?t, AGR=?arg, TYPE=?ta] Adj[SEM=?a, TYPE=?ta, AGR=?arg]
+VP[SEM=<app(?v, ?m)>, TENSE=?t, AGR=?arg] -> V[SEM=?v, TENSE=?t, AGR=?arg, TYPE=?tn] DET[AGR=?arg] N[AGR=?arg, SEM=?m, TYPE=?tn]
+VP[SEM=<app(?v, ?a)>, TENSE=?t, AGR=?arg] -> V[SEM=?v, TENSE=?t, AGR=?arg, TYPE=?ta] NP[SEM=?a, AGR=?arg]
+VP[SEM=<app(?v, ?a)>, TENSE=?t, AGR=?arg] -> V[SEM=?v, TENSE=?t, AGR=?arg, TYPE=?ta] ENUM[SEM=?a, AGR=?arg]
+
+N[AGR=[NUM=sg, PER=3, GNR=m], SEM=<Clervens>] -> 'Clervens'
+N[AGR=[NUM=sg, PER=3, GNR=m], SEM=<Nelson>] -> 'Nelson'
+N[AGR=[NUM=sg, PER=3, GNR=f], SEM=<Kim>] -> 'Kim'
+N[AGR=[NUM=sg, PER=3, GNR=m], SEM=<Hugo>] -> 'Hugo'
+N[AGR=[NUM=sg, PER=3, GNR=m], SEM=<Sylvain>] -> 'Sylvain'
+N[AGR=[NUM=sg, PER=3, GNR=m], SEM=<Robert>] -> 'Robert'
+N[AGR=[NUM=sg, PER=3, GNR=f], SEM=<Anne>] -> 'Anne'
+N[AGR=[NUM=sg, PER=3, GNR=m], SEM=<Jean>] -> 'Jean'
+
+N[AGR=[NUM=sg, PER=3, GNR=m], TYPE=<metier>, SEM=<danseur>] -> 'danseur'
+N[AGR=[NUM=sg, PER=3, GNR=m], TYPE=<metier>, SEM=<chanteur>] -> 'chanteur'
+N[AGR=[NUM=sg, PER=3, GNR=f], TYPE=<metier>, SEM=<danseuse>] -> 'danseuse'
+N[AGR=[NUM=sg, PER=3, GNR=f], TYPE=<metier>, SEM=<actrice>] -> 'actrice'
+
+ENUM[SEM=<?n1 and ?n2>] -> NP[SEM=?n1] "et" NP[SEM=?n2]
+ENUM[SEM=<?n1 and ?n2>] -> NP[SEM=?n1] "," ENUM[SEM=?n2]
+
+DET[AGR=[NUM=sg, GNR=m], SEM=''] -> 'un' | 'le'
+DET[AGR=[NUM=sg, GNR=f], SEM=''] -> 'une' | 'la'
+
+V[TENSE=pres, AGR=[NUM=sg, PER=3], SEM=<\b.\x.a_emotion (x, b)>, TYPE=<emotion>] -> 'est'
+V[AGR=[NUM=sg, PER=3], SEM=<\b.\x.etat (x, b)>, TYPE=<etat>] -> 'est' | 'etait'
+V[AGR=[NUM=sg, PER=3], SEM=<\b.\x.metier (x, b)>, TYPE=<metier>] -> 'est' | 'etait'
+V[TENSE=pres, AGR=[NUM=sg, PER=3], SEM=<\x.\y.posseder(y, x)>] -> 'possede'
+V[TENSE=past, AGR=[NUM=sg, PER=3], SEM=<\x.\y.posseder(y, x)>] -> 'possedait'
+
+V[TENSE=pres, AGR=[NUM=sg, PER=3], SEM=<\b.\x.-a_emotion (x, b)>, TYPE=<emotion>] -> NEGATION1 'est' NEGATION2
+V[AGR=[NUM=sg, PER=3], SEM=<\b.\x.-etat (x, b)>, TYPE=<etat>] -> NEGATION1 'est' NEGATION2 | NEGATION1 'etait' NEGATION2
+V[AGR=[NUM=sg, PER=3], SEM=<\b.\x.-metier (x, b)>, TYPE=<metier>] -> NEGATION1 'est' NEGATION2 | NEGATION1 'etait' NEGATION2
+V[TENSE=pres, AGR=[NUM=sg, PER=3], SEM=<\x.\y.-posseder(y, x)>] -> NEGATION1 'possede' NEGATION2
+V[TENSE=past, AGR=[NUM=sg, PER=3], SEM=<\x.\y.-posseder(y, x)>] -> NEGATION1 'possedait' NEGATION2
+
+Adj[SEM=<fache>, TYPE=<emotion>, AGR=[GNR=m]] -> 'fache' | 'mecontent' | 'contrarie'
+Adj[SEM=<fache>, TYPE=<emotion>, AGR=[GNR=f]] -> 'fachee' | 'mecontente' | 'contrariee'
+Adj[SEM=<heureux>, TYPE=<emotion>, AGR=[GNR=m]] -> 'heureux' | 'rejoui'
+Adj[SEM=<heureux>, TYPE=<emotion>, AGR=[GNR=f]] -> 'heureuse' | 'rejouie'
+Adj[SEM=<mechant>, TYPE=<emotion>, AGR=[GNR=m]] -> 'mechant'
+Adj[SEM=<mechant>, TYPE=<emotion>, AGR=[GNR=f]] -> 'mechante'
+Adj[SEM=<mort>, TYPE=<etat>, AGR=[GNR=m]] -> 'mort' | 'decede'
+Adj[SEM=<morte>, TYPE=<etat>, AGR=[GNR=f]] -> 'morte' | 'decedee'
+
+NN[AGR=[NUM=sg, GNR=m], SEM=<couteau>] -> 'couteau'
+NN[AGR=[NUM=sg, GNR=m], SEM=<fil_de_fer>] -> 'fil de fer'
+NN[AGR=[NUM=sg,GNR=f], SEM=<foret>] -> 'foret'
+NN[AGR=[NUM=sg,GNR=f], SEM=<batte_de_baseball>] -> 'batte de baseball'
+
+PRO[AGR=[NUM=sg, PER=3, GNR=m]] -> 'il'
+PRO[AGR=[NUM=sg, PER=3, GNR=f]] -> 'elle'
+
+CONJ -> 'et'
+
+NEGATION1 -> 'ne' | 'n'
+NEGATION2 -> 'pas'
